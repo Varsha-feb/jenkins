@@ -1,7 +1,18 @@
+#!/bin/bash
+
+echo "1. Updating............"
+sudo apt update
+
+echo "2.installing openjdk-17..........."
+sudo apt -y install openjdk-17-jdk
+
+echo" 3. adding jenkins packages to apt list....."
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
 echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+echo "4.Updating apt and installing Jnekins...." 
 sudo apt-get update
 sudo apt-get install jenkins
